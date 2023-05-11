@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit a new PayForBlob transaction</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/form.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/javascripts/response.js"></script>
+</head>
+
+<body>
+  <h1>Submit a new PayForBlob transaction</h1>
+  <form action="/submit" method="POST">
+    <span class="encoding-info">
+      Namespace ID will be hex encoded before sending it to the node. The first 8 bytes will be used 
+      as the namespace ID. If the string is longer than 8 bytes, zeros will be appended 
+      to the end of the string.
+    </span>
+    <br>
+    <br>
+    <label for="namespace_id">Namespace ID:</label>
+    <input type="text" id="namespace_id" name="namespace_id" required>
+    <br>
+    <span class="encoding-info">
+      Data will be hex encoded before sending it to the node.
+    </span>
+    <br>
+    <br>
+    <label for="data">Data:</label>
+    <input type="text" id="data" name="data" required>
+    <br>
+    <label for="gas_limit">Gas Limit (utia):</label>
+    <input type="number" id="gas_limit" name="gas_limit" required>
+    <br>
+    <label for="fee">Fee (utia):</label>
+    <input type="number" id="fee" name="fee" required>
+    <br>
+    <label for="node_url">Node URL:</label>
+    <input type="text" id="node_url" name="node_url" required>
+    <br>
+    <button type="submit">Submit</button>
+  </form>
+  <br>
+  <div id="response-section"></div>
+</body>
+
+</html>
